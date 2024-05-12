@@ -2,12 +2,7 @@ from modules.selenium_module import SeleniumModule
 from modules.beautifulsoup_module import BeautifulSoupModule
 from modules.excel_module import ExcelModule
 
-
 class Main:
-
-    def write_to_file(file_path, content):
-        with open(file_path, "a") as file:
-            file.write(content)
 
     bot = SeleniumModule()
     elements = bot.find_entry_elements()
@@ -26,7 +21,7 @@ class Main:
 
     for data in extracted_data:
         em.add_row(data)
-        
+
     em.save_file()
 
 

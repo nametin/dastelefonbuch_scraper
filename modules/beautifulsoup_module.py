@@ -48,7 +48,7 @@ class BeautifulSoupModule:
             telephone_section = main_info_section.find(class_="nr")
 
             telephone_number = "".join(
-                s for s in telephone_section.stripped_strings
+                s for s in telephone_section.find_all(text=True, recursive=True) if s.parent.get('class') != ['hide']
             ).replace("…", "")
         except:
             telephone_number = None
