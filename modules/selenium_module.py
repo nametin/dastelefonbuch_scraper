@@ -40,7 +40,6 @@ class SeleniumModule:
 
             try:
                 self.accept_cookies()
-                # end_element = self.driver.find_element(By.XPATH, "//p[text()='Keine weiteren Ergebnisse']")
                 end_element = self.driver.find_element(
                     By.CLASS_NAME,
                     "hitlistitem endoflist infinite-scroll-last infinite-scroll-error",
@@ -69,12 +68,10 @@ class SeleniumModule:
     def get_links(self, entry_elements):
         details_links = []
         for entry in entry_elements:
-            # Her entry için "Mehr Details" linkini bul
             try:
                 detail_link_element = entry.find_element(By.XPATH, ".//a[contains(@class, 'todetails')]")
                 details_links.append(detail_link_element.get_attribute('href'))
             except:
-                # Eğer link bulunamazsa, None değeri ekle
                 details_links.append(None)
 
         return details_links

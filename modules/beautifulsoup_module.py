@@ -36,10 +36,10 @@ class BeautifulSoupModule:
         try: 
             address_section = main_info_section.find(itemprop="address")
             street_address = address_section.find(itemprop="streetAddress").get_text(strip=True)
-            street_number = address_section.contents[2].strip()  # Get the street number which follows the streetAddress span
+            street_number = address_section.contents[2].strip()  
             postal_code = address_section.find(itemprop="postalCode").get_text(strip=True)
             locality = address_section.find(itemprop="addressLocality").get_text(strip=True)
-            region = address_section.contents[-1].strip()  # Get the region which follows the locality span
+            region = address_section.contents[-1].strip() 
             address = f"{street_address} {street_number} {postal_code} {locality} {region}"
         except :
             address = None
