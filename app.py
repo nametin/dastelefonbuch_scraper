@@ -1,15 +1,15 @@
 # app.py
 
-from modules.selenium_module import SeleniumModule
 from modules.beautifulsoup_module import BeautifulSoupModule
 from modules.excel_module import ExcelModule
+from modules.playwright_module import PlaywrightModule
 
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 def main():
     link = "https://www.dastelefonbuch.de/Suche/Yoga/Augsburg"
 
-    bot = SeleniumModule(link)
+    bot = PlaywrightModule(link, headless=True)
     elements = bot.find_entry_elements()
     links = bot.get_links(elements)
     links = list({u for u in links if u})

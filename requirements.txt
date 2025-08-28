@@ -1,5 +1,6 @@
 beautifulsoup4==4.12.3
 requests==2.31.0
-selenium
 openpyxl
 lxml
+playwright
+# running playwright install in the terminal is required after installing the package

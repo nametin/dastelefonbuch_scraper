@@ -1,4 +1,14 @@
 # selenium_module.py
+# Deprecated, use playwright_module.py instead
+# pip install selenium is required for this module.
+"""
+usage in app.py:
+add from modules.selenium_module import SeleniumModule
+and replace 
+bot = PlaywrightModule(link = link, headless=False)
+with
+bot = SeleniumModule(link)
+"""
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
