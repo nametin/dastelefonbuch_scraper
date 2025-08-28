@@ -1,11 +1,15 @@
+# selenium_module.py
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+
 import time
 
 class SeleniumModule:
 
-    def __init__(self):
+    def __init__(self, link):
         self.driver = webdriver.Chrome()
+        self.link = link
 
     def accept_cookies(self):
         try:
@@ -51,7 +55,8 @@ class SeleniumModule:
                 pass
 
     def find_entry_elements(self):
-        self.driver.get("https://www.dastelefonbuch.de/Branchen/Hausverwaltung/Berlin")
+        self.driver.get(self.link)
+        
         time.sleep(2)
         self.accept_cookies()
         self.scroll_to_end_of_page()
